@@ -7,7 +7,7 @@ global with sharing class AccountManager{
     global static Account getAccount(){
         RestRequest request = RestContext.request;
         String accountId = request.requestURI.substringBetween('Accounts/','/contacts');
-        system.debug(accountId);
+        system.debug('testtt'+accountId);
         Account objAccount = [SELECT Id,Name,(SELECT Id,Name FROM Contacts) FROM Account WHERE Id = :accountId LIMIT 1];
         return objAccount;
     }
